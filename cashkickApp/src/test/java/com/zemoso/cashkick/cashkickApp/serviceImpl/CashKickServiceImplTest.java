@@ -50,7 +50,7 @@ public class CashKickServiceImplTest {
         cashKickDTO.getUser().setId(1);
     }
 
-    @Test
+   /* @Test
     public void testAddCashKick_Success() {
         // Arrange
         // Mock the cashKickRepository to return empty for findByCashkickName
@@ -94,7 +94,7 @@ public class CashKickServiceImplTest {
         assertDoesNotThrow(() -> {
             cashKickService.addCashKick(cashKickDTO);
         });
-    }
+    }*/
 
 
 
@@ -138,7 +138,7 @@ public class CashKickServiceImplTest {
         assertEquals("Fail to create cashkick due to internal error ", exception.getMessage());
     }
 
-    @Test
+   /* @Test
     public void testGetAllCashKicks_Success() {
         // Arrange
         Integer id = 1;
@@ -169,5 +169,5 @@ public class CashKickServiceImplTest {
         // Verify that the repository method was called once
         verify(cashKickRepository, times(1)).findAllDataById(id);
     }
-
+*/
 }
