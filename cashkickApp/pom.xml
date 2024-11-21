@@ -28,13 +28,21 @@
 	</scm>
 	<properties>
 		<java.version>17</java.version>
-
-<!--		below one is sonar cloud integration properties-->
-		<sonar.projectKey>zemoso-tech_zemoso-tech</sonar.projectKey>
-		<sonar.organization>zemoso-int</sonar.organization>
-		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+		<spring-cloud.version>2023.0.3</spring-cloud.version>
 		<sonar.organization>zemoso-tech</sonar.organization>
-		<sonar.coverage.jacoco.xmlReportPaths>target/site/jacoco/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
+		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+		<sonar.projectKey>zemoso-tech_zemoso-tech</sonar.projectKey>
+		<sonar.exclusions>
+			**/com/zemoso/cashkick/cashkickApp/exception/**,
+			**/com/zemoso/cashkick/cashkickApp/dtos/**,
+			**/com/zemoso/cashkick/cashkickApp/entities/**,
+			**/com/zemoso/cashkick/cashkickApp/mapper/**,
+			**/com/zemoso/cashkick/cashkickApp/repository/**,
+			**/com/zemoso/cashkick/cashkickApp/service/**,
+			**/com/zemoso/cashkick/cashkickApp/CashKickAppApplication.java
+		</sonar.exclusions>
+
+
 
 	</properties>
 
