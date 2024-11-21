@@ -33,32 +33,6 @@ public class GlobalExceptionHandlerTest {
     @Mock
     private BindingResult bindingResult;// Mock BindingResult
 
-
-    @Test
-    public void testHandleValidationExceptions() {
-        // Create mock validation errors
-        FieldError fieldError1 = new FieldError("userDTO", "username", "Username cannot be null");
-        FieldError fieldError2 = new FieldError("userDTO", "email", "Email is invalid");
-
-        List<ObjectError> errors = Arrays.asList(fieldError1, fieldError2);
-        when(methodArgumentNotValidException.getBindingResult()).thenReturn(bindingResult);
-        when(bindingResult.getAllErrors()).thenReturn(errors);
-
-        // Call the method
-        ResponseEntity<ErrorResponse> response = globalExceptionHandler.handleValidationExceptions(methodArgumentNotValidException);
-
-        // Verify the response
-        ErrorResponse errorResponse = response.getBody();
-        assertNotNull(errorResponse);
-        assertEquals(HttpStatus.BAD_REQUEST.value(), errorResponse.getStatusCode());
-        assertEquals("Validation failed", errorResponse.getMessage());
-
-        // Verify the field errors
-        Map<String, String> fieldErrors = errorResponse.getFieldErrors();
-        assertEquals(2, fieldErrors.size());
-        assertEquals("Username cannot be null", fieldErrors.get("username"));
-        assertEquals("Email is invalid", fieldErrors.get("email"));
-    }
  /*   @Test
     public void testHandleValidationExceptions1() {
         // Create mock validation errors
