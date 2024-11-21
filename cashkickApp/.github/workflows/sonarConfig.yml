@@ -50,3 +50,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # GitHub token for authentication
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}    # SonarCloud token for analysis
+        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=zemoso-tech_zemoso-tech
