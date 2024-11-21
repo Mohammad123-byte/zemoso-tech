@@ -2,7 +2,7 @@ name: Github Actions for Spring Boot PR's and Pushes
 
 on:
   push:
-    branches: [dev]  # Trigger on pushes to the 'dev' branch
+    branches: [dev,main]  # Trigger on pushes to the 'dev' branch
     paths:
       - "**/*.java"    # Monitor changes to Java files in any directory
       - "pom.xml"      # For Maven-based Spring Boot projects

@@ -15,8 +15,8 @@ public interface CashKickRepository extends JpaRepository<CashKick,Integer> {
 
     Optional<CashKick> findByCashkickName(@NotBlank(message = "cash kick name is mandatory") String cashkickName);
 
-    @Query(value = "SELECT * FROM cashkicks WHERE userid = :userId", nativeQuery = true)
-    List<CashKick> findAllDataByUserid(@Param("userId") Integer userId);
+    @Query(value = "SELECT * FROM cashkicks WHERE id = :id", nativeQuery = true)
+    List<CashKick> findAllDataById(@Param("id") Integer id);
 
 
 

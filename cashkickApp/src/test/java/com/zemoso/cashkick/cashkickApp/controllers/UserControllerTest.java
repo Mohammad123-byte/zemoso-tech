@@ -6,7 +6,6 @@ import com.zemoso.cashkick.cashkickApp.exception.UserAlreadyExistException;
 import com.zemoso.cashkick.cashkickApp.service.UserService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.ArgumentCaptor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
@@ -39,7 +38,7 @@ public class UserControllerTest {
         userDTO.setEmail("testuser@example.com");
 
         user = new User();
-        user.setUserid(1);
+        user.setId(1);
         user.setUsername("testuser");
         user.setEmail("testuser@example.com");
     }

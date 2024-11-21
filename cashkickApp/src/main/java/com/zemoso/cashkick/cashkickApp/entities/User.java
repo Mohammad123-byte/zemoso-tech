@@ -13,17 +13,13 @@ import java.util.List;
 @Entity
 @Data
 @Table(name = "users")
-public class User implements Serializable {
-
-    @Serial
-    private static final long serialVersionUID = 1L;
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonIgnore
-    private Integer userid;
+    private Integer id;
 
-//    private Integer user_id;
     @JsonIgnore
     @Column(name = "user_name")
     private String username;
@@ -37,6 +33,7 @@ public class User implements Serializable {
     @JsonIgnore
     private List<CashKick> cashkicks;
 
+/*
 
     @Override
     public String toString() {
@@ -60,6 +57,7 @@ public class User implements Serializable {
         sb.append('}');
         return sb.toString();
     }
+*/
 
 }
 

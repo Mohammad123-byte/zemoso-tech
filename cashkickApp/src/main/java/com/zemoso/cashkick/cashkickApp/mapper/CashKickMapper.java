@@ -56,11 +56,6 @@ public class CashKickMapper {
         List<Contract> contractList = modelMapper.map(cashKickDTO.getContracts(), new TypeToken<List<Contract>>() {}.getType());
         cashKick.setContracts(contractList);
 
-        // Convert UserDTO to User+
-//        if (cashKickDTO.getUser() != null) {
-//            User user = modelMapper.map(cashKickDTO.getUser(), User.class);
-//            cashKick.setUser(user);
-//        }
 
         return cashKick;
     }

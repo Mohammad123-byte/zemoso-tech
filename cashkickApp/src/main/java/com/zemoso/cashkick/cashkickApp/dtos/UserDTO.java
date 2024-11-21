@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Data
 public class UserDTO {
-    private Integer userid;
+    private Integer id;
     @NotBlank(message = "Username is required")
     private String username;
 

@@ -18,5 +18,4 @@ public class ErrorResponse {
         this.statusCode = statusCode;
         this.message = message;
     }
-    //getter and setters
 }

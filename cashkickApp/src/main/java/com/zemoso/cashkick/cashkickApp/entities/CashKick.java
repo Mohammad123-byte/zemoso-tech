@@ -13,9 +13,7 @@ import java.util.List;
 @Entity
 @Data
 @Table(name = "cashkicks")
-public class CashKick implements Serializable {
-    @Serial
-    private static final long serialVersionUID = 1L;
+public class CashKick  {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -55,7 +53,7 @@ public class CashKick implements Serializable {
     private List<Contract> contracts;
 
 
-    @Override
+    /*@Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("CashKick{")
@@ -82,5 +80,5 @@ public class CashKick implements Serializable {
         sb.append('}');
         return sb.toString();
     }
-
+*/
 }

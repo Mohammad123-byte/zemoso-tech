@@ -11,9 +11,7 @@ import java.util.List;
 @Entity
 @Data
 @Table(name = "contracts")  // Custom table name, optional if you want to use snake_case globally
-public class Contract implements Serializable {
-    @Serial
-    private static final long serialVersionUID = 1L;
+public class Contract {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -61,7 +59,7 @@ public class Contract implements Serializable {
     @JsonBackReference
     private List<CashKick> cashkick;
 
-    @Override
+   /* @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Contract{")
@@ -95,5 +93,5 @@ public class Contract implements Serializable {
         sb.append('}');
         return sb.toString();
     }
-
+*/
 }
