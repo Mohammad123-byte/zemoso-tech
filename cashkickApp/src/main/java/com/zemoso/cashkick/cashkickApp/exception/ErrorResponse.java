@@ -8,7 +8,8 @@ import java.util.Map;
 
 @Data
 @AllArgsConstructor
-public class ErrorResponse {
+public class
+ErrorResponse {
     private int statusCode;
     private String message;
     private Map<String,String> fieldErrors = new HashMap<>();

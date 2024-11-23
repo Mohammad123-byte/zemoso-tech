@@ -59,39 +59,4 @@ public class Contract {
     @JsonBackReference
     private List<CashKick> cashkick;
 
-   /* @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Contract{")
-                .append("id=").append(id)
-                .append(", contractName='").append(contractName).append('\'')
-                .append(", contractType='").append(contractType).append('\'')
-                .append(", contractStatus='").append(contractStatus).append('\'')
-                .append(", startDate='").append(startDate).append('\'')
-                .append(", endDate='").append(endDate).append('\'')
-                .append(", paymentFrequency='").append(paymentFrequency).append('\'')
-                .append(", contractAmount=").append(contractAmount)
-                .append(", paidAmount=").append(paidAmount)
-                .append(", outstandingAmount=").append(outstandingAmount)
-                .append(", lastPaymentDate='").append(lastPaymentDate).append('\'')
-                .append(", startAmount=").append(startAmount);
-
-        // If the user is not null, include the user's ID
-        if (user != null) {
-            sb.append(", user_id=").append(user.getUserid());
-        } else {
-            sb.append(", user_id=null");
-        }
-
-        // If cashkick list is not null, include the number of associated CashKicks
-        if (cashkick != null) {
-            sb.append(", cashkick_count=").append(cashkick.size());
-        } else {
-            sb.append(", cashkick_count=0");
-        }
-
-        sb.append('}');
-        return sb.toString();
-    }
-*/
 }

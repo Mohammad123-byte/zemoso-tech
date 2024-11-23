@@ -4,20 +4,20 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
-import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -33,27 +33,36 @@ public class GlobalExceptionHandlerTest {
     @Mock
     private BindingResult bindingResult;// Mock BindingResult
 
- /*   @Test
-    public void testHandleValidationExceptions1() {
-        // Create mock validation errors
-        FieldError fieldError1 = new FieldError("userDTO", "username", "Username cannot be null");
-        FieldError fieldError2 = new FieldError("userDTO", "email", "Email is invalid");
 
-        List<ObjectError> errors = Arrays.asList(fieldError1, fieldError2);
-        when(methodArgumentNotValidException.getBindingResult().getAllErrors()).thenReturn(errors);
+    @Test
+    void testHandleValidationExceptions() {
+        // Step 1: Set up the mock FieldError
+        FieldError fieldError = new FieldError(
+                "someObject",  // object name
+                "someField",   // field name
+                "This field is required"
+        );
+        BindingResult bindingResult = Mockito.mock(BindingResult.class);
+        Mockito.when(bindingResult.getAllErrors()).thenReturn(Collections.singletonList(fieldError));
 
-        // Call the method
-        ResponseEntity<ErrorResponse> response = globalExceptionHandler.handleValidationExceptions(methodArgumentNotValidException);
+        // Step 2: Set up the exception object
+        MethodArgumentNotValidException exception = new MethodArgumentNotValidException(null, bindingResult);
 
-        // Verify the response
-        ErrorResponse errorResponse = response.getBody();
+        // Step 3: Call the handler method
+        ResponseEntity<ErrorResponse> responseEntity = globalExceptionHandler.handleValidationExceptions(exception);
+
+        // Step 4: Verify the response
+        assertNotNull(responseEntity);
+        assertEquals(HttpStatus.BAD_REQUEST, responseEntity.getStatusCode());
+
+        // Check the error response body
+        ErrorResponse errorResponse = responseEntity.getBody();
         assertNotNull(errorResponse);
         assertEquals(HttpStatus.BAD_REQUEST.value(), errorResponse.getStatusCode());
         assertEquals("Validation failed", errorResponse.getMessage());
-        assertEquals(2, errorResponse.getFieldErrors().size());
-        assertEquals("Username cannot be null", errorResponse.getFieldErrors().get("username"));
-        assertEquals("Email is invalid", errorResponse.getFieldErrors().get("email"));
-    }*/
+        assertTrue(errorResponse.getFieldErrors().containsKey("someField"));
+        assertEquals("This field is required", errorResponse.getFieldErrors().get("someField"));
+    }
 
     @Test
     public void testHandleDuplicateEntryException() {

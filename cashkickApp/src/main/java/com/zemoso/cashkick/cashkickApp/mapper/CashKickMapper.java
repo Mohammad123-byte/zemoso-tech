@@ -5,23 +5,13 @@ import com.zemoso.cashkick.cashkickApp.dtos.ContractDTO;
 import com.zemoso.cashkick.cashkickApp.dtos.UserDTO;
 import com.zemoso.cashkick.cashkickApp.entities.CashKick;
 import com.zemoso.cashkick.cashkickApp.entities.Contract;
-import com.zemoso.cashkick.cashkickApp.entities.User;
-import jakarta.validation.Valid;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
-import org.springframework.validation.BeanPropertyBindingResult;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
 
 import java.util.List;
 public class CashKickMapper {
 
     private static final ModelMapper modelMapper = new ModelMapper();
-
-//    static {
-//        // Custom configurations if needed
-//        modelMapper.getConfiguration().setAmbiguityIgnored(true);
-//    }
 
     // Convert entity to DTO
     public static CashKickDTO convertToDTO(CashKick cashKick) {

@@ -33,32 +33,6 @@ public class User {
     @JsonIgnore
     private List<CashKick> cashkicks;
 
-/*
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("User{")
-                .append("userid=").append(userid)
-                .append(", username='").append(username).append('\'')
-                .append(", email='").append(email).append('\'')
-                .append(", cashkicks_count=").append(cashkicks != null ? cashkicks.size() : 0);
-
-        // Optionally, add first few cashkick ids (to prevent recursion)
-        if (cashkicks != null && !cashkicks.isEmpty()) {
-            sb.append(", first_cashkicks=[");
-            for (int i = 0; i < Math.min(cashkicks.size(), 3); i++) {
-                sb.append(cashkicks.get(i).getId());  // assuming CashKick has a `getId()` method
-                if (i < Math.min(cashkicks.size(), 3) - 1) sb.append(", ");
-            }
-            sb.append("]");
-        }
-
-        sb.append('}');
-        return sb.toString();
-    }
-*/
-
 }
 
 
