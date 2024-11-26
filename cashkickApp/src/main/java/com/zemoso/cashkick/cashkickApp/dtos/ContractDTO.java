@@ -17,7 +17,7 @@ public class ContractDTO {
     private String contractType;
 
     // Optional but needs to be a valid contract status if provided
-    @Pattern(regexp = "^(Active|Inactive|Completed)$", message = "Contract Status must be one of 'Active', 'Inactive', or 'Completed'")
+    @Pattern(regexp = "^(Available|Active|Inactive|Completed)$", message = "Contract Status must be one of 'Available', 'Active', 'Inactive', or 'Completed'")
     private String contractStatus;
 
     // Start and end dates should follow a specific format (yyyy-MM-dd)
